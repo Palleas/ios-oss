@@ -1,4 +1,5 @@
 #!/bin/bash
 
-brew install marathon
+brew update
+brew install marathon-swift
 marathon run check-playgrounds 
