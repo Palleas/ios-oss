@@ -36,7 +36,7 @@ for playground in playgrounds {
             .reduce("", +)
 
 
-        try Folder(path: "").createFile(named: "content-of-\(page.name).swift", contents: pageContent)
+        try productsDir.createFile(named: "content-of-\(page.name).swift", contents: pageContent)
 
         let run = Process()
         run.launchPath = "/usr/bin/swift"
