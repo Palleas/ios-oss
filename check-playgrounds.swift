@@ -9,9 +9,12 @@ guard let productsDir = ProcessInfo.processInfo.environment["BUDDYBUILD_PRODUCTS
     throw PlaygroundError(message: "Missing BUDDYBUILD_PRODUCTS_DIR")
 }
 
+guard let root = ProcessInfo.processInfo.environment["BUDDYBUILD_WORKSPACE"].flatMap({ try? Folder(path: $0) }) else {
+    throw PlaygroundError(message: "Missing BUDDYBUILD_WORKSPACE")
+}
+
 print("Checking playgrounds...")
 
-let root = try Folder(path: "/Users/romain/OpenSource/kickstarter-ios")
 
 let playgrounds = root
     .subfolders
