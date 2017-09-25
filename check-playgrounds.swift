@@ -5,8 +5,8 @@ struct PlaygroundError: Error {
     let message: String
 }
 
-guard let productsDir = ProcessInfo.processInfo.environment["BUDDYBUILD_PRODUCTS_DIR"].flatMap({ try? Folder(path: $0) }) else {
-    throw PlaygroundError(message: "Missing BUDDYBUILD_PRODUCTS_DIR")
+guard let productsDir = ProcessInfo.processInfo.environment["BUDDYBUILD_PRODUCT_DIR"].flatMap({ try? Folder(path: $0) }) else {
+    throw PlaygroundError(message: "Missing BUDDYBUILD_PRODUCT_DIR")
 }
 
 guard let root = ProcessInfo.processInfo.environment["BUDDYBUILD_WORKSPACE"].flatMap({ try? Folder(path: $0) }) else {
